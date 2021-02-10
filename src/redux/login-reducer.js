@@ -1,5 +1,5 @@
 const inititalState ={
-f: 11
+    isCodeCame : true 
 }
 
 
