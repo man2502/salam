@@ -1,12 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import { Controller, useForm, useWatch } from "react-hook-form"
 import NumberFormat from "react-number-format"
 import s from "./AuthCode.module.css"
 import { AutoTabProvider } from 'react-auto-tab'
 import $ from "jquery"
+import { Redirect } from "react-router-dom"
+import Profile from "./../../Profile/Profile"
 
 const AuthCode = (props) => {
-
+    const [totalCode , setTotalCode] =useState("")
 
     const styleArr = {
         width: "20px",
@@ -37,9 +39,7 @@ const AuthCode = (props) => {
     // }
    
     const postCode = (value) => {
-        
-        let  s = s + value
-        if (s.length==4) alert("yes")     
+        setTotalCode(totalCode+value)  
     }
 
     const blocks = Array.from({ length: 4 }, (element, index) => (
@@ -52,7 +52,7 @@ const AuthCode = (props) => {
             style={styleArr}
             ref={register}
             name={index.toString()}
-            onChange={(e) => { postCode(e.target.value.toString(), control) }}
+            onChange={(e) => { postCode(e.target.value.toString()) }}
         />
     ));
 
@@ -62,6 +62,7 @@ const AuthCode = (props) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <span>Code </span>
                 {blocks}
+                {totalCode.length ==4&& <Redirect to="/profile"/>} 
                 <button >submit</button>
             </form>
 
