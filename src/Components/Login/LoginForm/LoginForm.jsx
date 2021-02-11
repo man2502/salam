@@ -1,7 +1,6 @@
 import React from "react"
 import { Controller,useWatch } from "react-hook-form"
 import NumberFormat from "react-number-format"
-import AuthCode from "./AuthCode/AuthCode"
 import CodesForm from "./CodesForm/CodesForm"
 import s from "./LoginForm.module.css"
 
@@ -24,10 +23,7 @@ const LoginForm = (props) => {
 
             </section>
 
-            <section>
-                {props.succesPost()? <AuthCode control={props.control} register={props.register}/>: undefined}
-                
-            </section>
+           
 
         </form>
     )
