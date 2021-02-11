@@ -25,7 +25,7 @@ const LoginForm = (props) => {
             </section>
 
             <section>
-                {props.succesPost()? <AuthCode />: undefined}
+                {props.succesPost()? <AuthCode control={props.control} register={props.register}/>: undefined}
                 
             </section>
 
