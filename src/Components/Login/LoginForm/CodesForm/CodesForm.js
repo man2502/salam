@@ -20,7 +20,7 @@ export default function CodesForm({ onChange, control }) {
           
         </select>
       }
-      name="country"
+      name="country_code"
       control={control}
       defaultValue={"+993"}
       

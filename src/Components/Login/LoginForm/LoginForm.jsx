@@ -46,7 +46,7 @@ function IsolateReRender({ control, onSubmit }) {
 function GetCodeLength (control){
     const watchCode = useWatch({
         control,
-        name: "country",
+        name: "country_code",
         defaultValue: '+993'
     });
 

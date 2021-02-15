@@ -9,7 +9,6 @@ import Profile from "./../../Profile/Profile"
 
 const AuthCode = (props) => {
     const [totalCode , setTotalCode] =useState("")
-
     const styleArr = {
         width: "20px",
         height: "20px",
@@ -27,22 +26,16 @@ const AuthCode = (props) => {
 
 
     const onSubmit = (data) => {
-        console.log(data);
-
+        props.post(props.phone,props.code,totalCode)
     }
     
-    // function calcLength(val){
-    //     let s = 0
-    //     if(val == 1) s = s+ 1
-        
-    //     if(s==4 ) alert("yes")
-    // }
+   
    
     const postCode = (value) => {
         setTotalCode(totalCode+value)  
     }
 
-    const blocks = Array.from({ length: 4 }, (element, index) => (
+    const blocks = Array.from({ length: 5 }, (element, index) => (
         <input
             className="block"
             tabIndex={index}
@@ -62,8 +55,9 @@ const AuthCode = (props) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <span>Code </span>
                 {blocks}
-                {totalCode.length ==4&& <Redirect to="/profile"/>} 
-                <button >submit</button>
+                {/* {totalCode.length ==4 }  */}
+                {/* <Redirect to="/profile"/> */}
+                {totalCode.length == 5 ?onSubmit(): undefined}
             </form>
 
         </div>
